@@ -68,6 +68,10 @@
 		<li><a href="mailto:flero@flero.dev">Email (flero@flero.dev)</a></li>
 	</ul>
 
+	<h2>❤️ GitHub Sponsors (ty)</h2>
+	<noscript>You have JavaScript disabled. We are unable to load sponsor information.</noscript>
+    <ul id="sponsors"></ul>
+	
 	<h2>Username Display</h2>
 	<p>I go online by <strong>Flero</strong> (as a display name), and as <strong>flerouwu</strong> (as a handle).</p>
 
@@ -79,6 +83,21 @@
 
 		<p>Licensed under <a href="https://choosealicense.com/licenses/cc-by-4.0/">CC-BY-4.0</a></p>
 	</footer>
+
+	<script>
+	    const sponsorElement = document.getElementById('sponsors');
+	
+	    fetch('https://ghs.vercel.app/sponsors/not-ivy')
+	    	.then((res) => res.json())
+		.then(({sponsors}) => {
+			console.log(sponsors)
+			sponsors.forEach((sponsor) => {
+				const child = document.createElement('li');
+				child.innerHTML = `<a href="${sponsor.details.html_url}">${sponsor.handle}</a>`
+				sponsorElement.appendChild(child)
+			})
+	    })
+	</script>
 </body>
 
 </html>
