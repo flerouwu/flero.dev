@@ -75,13 +75,10 @@
 		<li><a href="mailto:flero@flero.dev">Email (flero@flero.dev)</a> - prefer above methods</li>
 	</ul>
 
-	<!-- Modified with JavaScript :3 -->
-	<div id="sponsors"></div>
-
 	<div>
 		<h2>Projects</h2>
 
-		<!-- My Own Projects -->
+		<!-- Primary Projects -->
 		<div>
 			<p>While a lot of my ideas end up into the trashpile, or stay privated, here are some somewhat-working public projects that I have completed or am currently maintaining.</p>
 			<ul>
@@ -139,30 +136,6 @@
 
 		<p>Licensed under <a href="https://choosealicense.com/licenses/cc-by-4.0/">CC-BY-4.0</a></p>
 	</footer>
-
-	<!-- Sponsor Loading Script -->
-	<script>
-    	const div = document.querySelector("#sponsors")
-
-    	fetch("https://ghs.vercel.app/sponsors/flerouwu")
-			.then((res) => res.json())
-			.then(({ sponsors }) => {
-				console.log(`Loaded ${sponsors.length} sponsors`)
-				if (sponsors.length <= 0) return
-
-				// Add Title
-				const title = document.createElement("h2")
-				title.innerText = "❤️ GitHub Sponsors (ty)"
-				div.appendChild(title)
-
-				// Add Sponsors
-				sponsors.forEach((sponsor) => {
-					const item = document.createElement("li")
-					item.innerHtml = `<a href="${sponsor.details.html_url}">${sponsor.handle}</a>`
-					div.appendChild(item)
-				})
-    		})
-	</script>
 </body>
 
 </html>
