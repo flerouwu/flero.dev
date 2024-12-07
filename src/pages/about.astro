@@ -1,0 +1,87 @@
+---
+import Layout from "../layouts/Layout.astro"
+import { Content } from "./index.md"
+
+interface Link {
+  name: string
+  href: string
+}
+
+const contacts: {
+  primary: Link[]
+  other: Link[]
+} = {
+  // In order of fastest response times
+  primary: [
+    {
+      name: "Telegram",
+      href: "https://t.me/flerouwu",
+    },
+    {
+      name: "Discord",
+      href: "https://discord.com/users/1059375676769189938",
+    },
+    {
+      name: "Email (flero@flero.dev)",
+      href: "mailto:flero@flero.dev",
+    },
+  ],
+
+  // Other socials and such
+  // Responses aren't guaranteed
+  other: [
+    {
+      name: "Bluesky",
+      href: "https://bsky.app/profile/did:plc:rg3pczfn4k47biofwtmsokdr",
+    },
+    {
+      name: "GitHub",
+      href: "https://github.com/flerouwu",
+    },
+    {
+      name: "GitLab",
+      href: "https://gitlab.com/flerouwu",
+    },
+  ],
+}
+---
+
+<Layout>
+  <div>
+    <p>Hobbyist furry software developer from Australia.</p>
+  </div>
+
+  <div>
+    <h2>Contact</h2>
+
+    <div>
+      <p>In order of fastest response times:</p>
+
+      <ul>
+        {
+          contacts.primary.map((contact) => (
+            <li>
+              <a href={contact.href}>{contact.name}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <p>Other places to find me:</p>
+
+      <ul>
+        {
+          contacts.other.map((contact) => (
+            <li>
+              <a href={contact.href}>{contact.name}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <Content />
+</Layout>

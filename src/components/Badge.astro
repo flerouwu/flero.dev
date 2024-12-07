@@ -1,0 +1,30 @@
+---
+interface Props {
+  variant?: "normal" | "xs"
+}
+
+const variant = Astro.props.variant ?? "normal"
+---
+
+<span class:list={["badge", `badge-${variant}`]}>
+  <slot />
+</span>
+
+<style lang="scss">
+  @use "../assets/common.scss";
+
+  .badge {
+    @extend .theme-text;
+    @apply rounded-2xl font-semibold;
+
+    background-color: var(--theme-900);
+  }
+
+  .badge-normal {
+    @apply py-2 px-4 text-sm;
+  }
+
+  .badge-xs {
+    @apply py-1 px-2 text-sm;
+  }
+</style>

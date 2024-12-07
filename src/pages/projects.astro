@@ -1,0 +1,101 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Project from "../components/Project.astro"
+---
+
+<Layout>
+  <div class="grid gap-8">
+    <div>
+      <h2>Projects</h2>
+      <p>
+        Projects that I actively develop for. Some projects may not receive constant updates, but are still updated on
+        if necessary.
+      </p>
+
+      <div class="project-list">
+        <Project name="Protobit" tags={["minecraft", "kotlin"]}>
+          <p>
+            Minecraft server containing multiple custom plugins and features, aiming to provide an excellent player
+            experience.
+          </p>
+
+          <div slot="links">
+            <a href="https://protobit.space">Website</a>
+          </div>
+        </Project>
+        <Project name="QuestKeeper" tags={["flutter", "dart", "typescript"]}>
+          <p>Gamified task management app, with integrated social features and cross-platform support.</p>
+
+          <div slot="links">
+            <a href="https://questkeeper.app">Website</a>
+          </div>
+        </Project>
+        <Project name="Fast Startup" tags={["game-mod", "c#", "unity"]}>
+          <p>
+            Modification for Lethal Company that skips various startup videos to bring players to the main menu faster.
+          </p>
+
+          <div slot="links">
+            <a href="https://github.com/flerouwu/LC_FastStartup">Repository</a>
+            <a href="https://thunderstore.io/c/lethal-company/p/flerouwu/LC_FastStartup">Thunderstore</a>
+          </div>
+        </Project>
+        <Project name="CLI Args Logger" tags={["rust"]}>
+          <p>
+            Modification for Lethal Company that skips various startup videos to bring players to the main menu faster.
+          </p>
+
+          <div slot="links">
+            <a href="https://github.com/flerouwu/CLIArgsLogger">Repository</a>
+          </div>
+        </Project>
+      </div>
+    </div>
+
+    <div>
+      <h2>Forks</h2>
+      <p>Projects originally developed by others, that I have forked and made modifications to.</p>
+
+      <div class="project-list">
+        <Project name="AutoGG" tags={["minecraft", "game-mod", "java"]}>
+          <p>
+            Minecraft 1.8.9 modification for the Forge Mod Loader that automatically sends a configurable message at the
+            end of server minigames.
+          </p>
+
+          <div slot="links">
+            <a href="https://github.com/flerouwu/AutoGG">Repository</a>
+          </div>
+        </Project>
+      </div>
+    </div>
+
+    <div>
+      <h2>Contributions</h2>
+      <p>Projects that I have contributed to in the past.</p>
+
+      <div class="project-list">
+        <Project name="JDA Commands" tags={["kotlin"]}>
+          <p>Kotlin library that uses Kotlin annotations to create Discord slash commands for JDA.</p>
+
+          <div slot="links">
+            <a href="https://github.com/ruffrick/jda-commands">Repository</a>
+          </div>
+        </Project>
+        <Project name="JDA Kotlinx" tags={["kotlin"]}>
+          <p>Kotlin library that adds various extension and utilities to JDA.</p>
+
+          <div slot="links">
+            <a href="https://github.com/ruffrick/jda-kotlinx">Repository</a>
+          </div>
+        </Project>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .project-list {
+    @apply grid lg:grid-cols-2 xl:grid-cols-3 gap-4;
+  }
+</style>

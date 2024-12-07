@@ -1,0 +1,81 @@
+---
+import Navbar from "../components/Navbar.astro"
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>Flero</title>
+  </head>
+  <body data-theme="sky">
+    <Navbar />
+
+    <slot />
+
+    <footer class="flex justify-between mt-12">
+      <p>
+        Source Code on
+        <a href="https://github.com/flerouwu/flero.dev">GitHub</a>
+      </p>
+      <p>
+        Licensed under
+        <a href="https://creativecommons.org/licenses/by/4.0">CC-BY-4.0</a>
+      </p>
+    </footer>
+  </body>
+</html>
+
+<style is:global lang="scss">
+  @use "../assets/common.scss";
+
+  body {
+    @apply p-24;
+    background-color: var(--theme-950);
+
+    h1 {
+      @extend .theme-heading;
+      @apply text-4xl font-bold leading-relaxed;
+    }
+
+    h2 {
+      @extend .theme-heading;
+      @apply text-3xl font-bold leading-relaxed;
+    }
+
+    h3 {
+      @extend .theme-heading;
+      @apply text-2xl font-bold leading-relaxed;
+    }
+
+    h4 {
+      @extend .theme-heading;
+      @apply text-xl font-bold leading-relaxed;
+    }
+
+    p {
+      @extend .theme-text;
+      @apply mb-4;
+    }
+
+    strong {
+      @extend .theme-text;
+    }
+
+    a {
+      @extend .theme-anchor;
+      @apply underline underline-offset-4;
+    }
+
+    ul {
+      @extend .theme-text;
+      @apply list-disc list-inside ml-4 mb-4;
+    }
+
+    li {
+      @extend .theme-text;
+    }
+  }
+</style>

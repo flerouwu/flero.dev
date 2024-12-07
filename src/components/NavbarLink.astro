@@ -1,0 +1,30 @@
+---
+interface Props {
+  name: string
+  href: string
+}
+
+const { name, href } = Astro.props
+const { pathname } = Astro.url
+
+const active = pathname.startsWith(href)
+---
+
+<a href={href} class:list={["nav-link", active && "active"]}>
+  {name}
+</a>
+
+<style lang="scss">
+  .nav-link {
+    @apply py-2 px-4 text-sm rounded-2xl font-semibold no-underline;
+    background-color: var(--theme-900);
+
+    &.active {
+      background-color: var(--theme-700);
+    }
+
+    &:hover {
+      @extend .active;
+    }
+  }
+</style>

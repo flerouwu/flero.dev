@@ -1,0 +1,25 @@
+---
+import { TZDate } from "@date-fns/tz"
+import Badge from "./Badge.astro"
+import NavbarLink from "./NavbarLink.astro"
+
+const time = TZDate.tz("Australia/Adelaide")
+const daylightSavings = time.getTimezoneOffset() === -630
+const timezone = daylightSavings ? "ACDT (UTC+10:30)" : "ACST (UTC+9:30)"
+---
+
+<nav class="flex justify-between items-center">
+  <div class="flex gap-4 items-center">
+    <h1>Flero</h1>
+
+    <div class="flex gap-2 theme-text">
+      <Badge>he/him</Badge>
+      <Badge>{timezone}</Badge>
+    </div>
+  </div>
+
+  <div class="flex gap-2">
+    <NavbarLink href="/about" name="About" />
+    <NavbarLink href="/projects" name="Projects" />
+  </div>
+</nav>

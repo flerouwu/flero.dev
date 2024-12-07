@@ -1,0 +1,32 @@
+---
+import Badge from "./Badge.astro"
+import Card from "./Card.astro"
+
+export type TagCategory = "minecraft" | "game-mod" | "flutter" | "unity"
+export type TagLanguage = "kotlin" | "dart" | "typescript" | "c#" | "rust" | "java"
+export type Tag = TagCategory | TagLanguage
+
+interface Props {
+  name: string
+  tags: Tag[]
+}
+
+const { name, tags } = Astro.props
+---
+
+<Card title={name}>
+  <div>
+    <h3>{name}</h3>
+
+    <!-- Tags -->
+    <div class="flex gap-2 mb-2">
+      {tags.map((tag) => <Badge variant="xs">{tag}</Badge>)}
+    </div>
+  </div>
+
+  <!-- Primary Content -->
+  <slot />
+
+  <!-- Links -->
+  <slot name="links" slot="links" />
+</Card>
