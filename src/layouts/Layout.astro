@@ -15,7 +15,7 @@ import Navbar from "../components/Navbar.astro"
 
     <slot />
 
-    <footer class="flex justify-between mt-12">
+    <footer class="flex flex-col sm:flex-row justify-between mt-12">
       <p>
         Source Code on
         <a href="https://github.com/flerouwu/flero.dev">GitHub</a>
@@ -32,7 +32,7 @@ import Navbar from "../components/Navbar.astro"
   @use "../assets/common.scss";
 
   body {
-    @apply p-24;
+    @apply p-4 sm:px-14 lg:px-24;
     background-color: var(--theme-950);
 
     h1 {
